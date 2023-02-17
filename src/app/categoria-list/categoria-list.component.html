@@ -1,0 +1,53 @@
+
+ <!-- Resources -->
+<h2>Gestion Categorias</h2>
+   <h3>Lista Categorias </h3>  
+        <div id="tabla" style="width: 80vw;">
+          <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col" style="align-items: end;">
+                    <button class="btn" id="nuevoBtn"  style="align-self: end;" (click)="goNuevaCategoria();">	<i class="glyphicon glyphicon-plus"></i>
+                    <span style="height:'24px';"> Añadir Nueva</span></button>
+                    
+                    </th>
+                </tr>
+              <tr>
+                <th scope="col">#id</th>
+                <th scope="col">Nombre Categoria</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Acciones</th>
+              
+              
+              </tr>
+            </thead> 
+            <tbody>
+              <tr *ngFor="let cat of listaCategorias">
+                <td>{{cat.id_categoria}}</td>
+                <td>{{cat.cat_nombre}}</td>
+                <td>{{cat.cat_descripcion}}</td>
+            <td>
+                <!--Aqui hay que incluir Botones de editar, y eliminar, o el link -->
+               <button class="btn btn-success ml-5" (click)="" id="{{cat.id_categoria}}"><i class="glyphicon glyphicon-pencil"></i> Editar</button> 
+               <span style="color:white"> |||</span>
+               <button class="btn btn-danger ml-5" (click)="" id="{{cat.id_categoria}}"><i class="glyphicon glyphicon-trash"></i> Eliminar</button>
+            </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+
+
+<!-- boton nuevo
+
+     <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        <span>Nueva</span>
+      </button>
+
+-->
