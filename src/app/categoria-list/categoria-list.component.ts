@@ -28,13 +28,22 @@ getListaCategorias():void{
         this.listaCategorias = resp.datos;
       }
       
-      console.log(this.listaCategorias);  //Esto me muestra en la consola el listado
+  //    console.log(this.listaCategorias);  //Esto me muestra en la consola el listado
     }
   )
   }
 
-  goNuevaCategoria(): void {
-     this.router.navigateByUrl('categoria/editar');
-  }
 
+  EliminarCategoria(id:any): void {
+//  this.router.navigateByUrl('categoria/editar');
+  const datos: Observable<any> = this.apiService.delApi('categoria/'+id);
+
+  datos.subscribe(
+    (resp:any) => {
+      console.log(resp);}
+  )
+
+//
+  this.getListaCategorias();
+}
 }

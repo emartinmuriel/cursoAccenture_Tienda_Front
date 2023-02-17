@@ -10,7 +10,7 @@
                     <th scope="col"></th>
                     <th scope="col"></th>
                     <th scope="col" style="align-items: end;">
-                    <button class="btn" id="nuevoBtn"  style="align-self: end;" (click)="goNuevaCategoria();">	<i class="glyphicon glyphicon-plus"></i>
+                    <button class="btn" id="nuevoBtn"  style="align-self: end;" routerLink="editar/0">	<i class="glyphicon glyphicon-plus"></i>
                     <span style="height:'24px';"> Añadir Nueva</span></button>
                     
                     </th>
@@ -31,9 +31,9 @@
                 <td>{{cat.cat_descripcion}}</td>
             <td>
                 <!--Aqui hay que incluir Botones de editar, y eliminar, o el link -->
-               <button class="btn btn-success ml-5" (click)="" id="{{cat.id_categoria}}"><i class="glyphicon glyphicon-pencil"></i> Editar</button> 
+               <button class="btn btn-success ml-5" routerLink="editar/{{cat.id_categoria}}"><i class="glyphicon glyphicon-pencil"></i> Editar</button> 
                <span style="color:white"> |||</span>
-               <button class="btn btn-danger ml-5" (click)="" id="{{cat.id_categoria}}"><i class="glyphicon glyphicon-trash"></i> Eliminar</button>
+               <button class="btn btn-danger ml-5" routerLink=""><i class="glyphicon glyphicon-trash"></i> Eliminar</button>
             </td>
               </tr>
             </tbody>
