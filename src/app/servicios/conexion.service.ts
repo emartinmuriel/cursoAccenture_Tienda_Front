@@ -13,13 +13,13 @@ API_URL: String = 'http://localhost:8080/';
 //Inyectamos el http al crear el servicio
   constructor(private http : HttpClient) { }
 
+  //Servicios que se consumiran de la API
   getApi(url:string) : Observable<any>{
     return this.http.get(this.API_URL+url).pipe(share());
   }
-/* 
-  postApi(url:string) : Observable<any>{
-    return this.http.get(this.API_URL+url).pipe(share());
-  }*/
+  postApi(url:string, categoria:Categoria) : Observable<any>{
+    return this.http.post(this.API_URL+url,categoria).pipe(share());
+  }
   putApi(url:string, categoria:Categoria) : Observable<any>{
     return this.http.put(this.API_URL+url,categoria).pipe(share());
   }

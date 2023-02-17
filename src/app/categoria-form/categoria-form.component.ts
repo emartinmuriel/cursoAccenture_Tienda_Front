@@ -37,13 +37,24 @@ id : Number=0;
   }
 
   GuardarCategoria(categoria: Categoria){
-    const datos: Observable<any> = this.conexionServ.putApi('categorias',categoria);
-    datos.subscribe(
-      (resp:any) => {
-        if(resp.status=200){
-          this.router.navigateByUrl("categoria");
+    if (categoria.id_categoria==0){
+      const datos: Observable<any> = this.conexionServ.postApi('categorias',categoria);
+      datos.subscribe(
+        (resp:any) => {
+          if(resp.status=200){
+            this.router.navigateByUrl("categoria");
+          }
         }
-      }
-    )
-  }
+      )
+    } else{ //Actualiza datos
+      const datos: Observable<any> = this.conexionServ.putApi('categorias',categoria);
+        datos.subscribe(
+          (resp:any) => {
+            if(resp.status=200){
+              this.router.navigateByUrl("categoria");
+            }
+          }
+        )
+    }
+  } 
 }

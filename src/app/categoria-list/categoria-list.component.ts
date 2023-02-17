@@ -37,8 +37,10 @@ EliminarCategoria(id:any): void {
   console.log("Entra en la funcion" +id);
   datos.subscribe(
     (resp:any) => {
-      console.log(resp);}
+      console.log("He eliminado");
+      window.location.reload();
+      
+    }
   )
-  this.getListaCategorias();
 }
 }
