@@ -36,14 +36,13 @@ getListaCategorias():void{
 
 EliminarCategoria(id:any): void {
 //  this.router.navigateByUrl('categoria/editar');
-  const datos: Observable<any> = this.apiService.delApi('categoria/'+id);
-
+  const datos: Observable<any> = this.apiService.delApi('categorias/'+id);
+  console.log("Entra en la funcion" +id);
   datos.subscribe(
     (resp:any) => {
-  //    console.log(resp);}
+      console.log(resp);}
   )
 
-//
   this.getListaCategorias();
 }
 }

@@ -31,9 +31,9 @@
                 <td>{{cat.cat_descripcion}}</td>
             <td>
                 <!--Aqui hay que incluir Botones de editar, y eliminar, o el link -->
-               <button class="btn btn-success ml-5" routerLink="editar/{{cat.id_categoria}}"><i class="glyphicon glyphicon-pencil"></i> Editar</button> 
+               <button class="btn btn-success ml-5" routerLink="editar/{{cat.id_categoria}}" alt="Modificar"><i class="glyphicon glyphicon-pencil"></i></button> 
                <span style="color:white"> |||</span>
-               <button class="btn btn-danger ml-5" routerLink=""><i class="glyphicon glyphicon-trash"></i> Eliminar</button>
+               <button class="btn btn-danger ml-5" (click)="EliminarCategoria(cat.id_categoria);"><i class="glyphicon glyphicon-trash"></i></button>
             </td>
               </tr>
             </tbody>
