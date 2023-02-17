@@ -27,22 +27,18 @@ getListaCategorias():void{
       if(resp.status=200){
         this.listaCategorias = resp.datos;
       }
-      
-  //    console.log(this.listaCategorias);  //Esto me muestra en la consola el listado
     }
   )
   }
 
 
 EliminarCategoria(id:any): void {
-//  this.router.navigateByUrl('categoria/editar');
   const datos: Observable<any> = this.apiService.delApi('categorias/'+id);
   console.log("Entra en la funcion" +id);
   datos.subscribe(
     (resp:any) => {
       console.log(resp);}
   )
-
   this.getListaCategorias();
 }
 }

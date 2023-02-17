@@ -23,7 +23,7 @@
         <input type="text" name="nombreCategoria" id="nombreCategoria" [(ngModel)]="categoria.cat_nombre" class="form-control input-cat" placeholder="Nombre de la categoria" aria-describedby="helpId" minlength="5" maxlength="50" required="true">
         <label for="descripcionCategoria" class="form-label">Descripción</label>
         <input type="text" name="descripcionCategoria" id="descripcionCategoria" [(ngModel)]="categoria.cat_descripcion" class="form-control input-cat" placeholder="Descripción" aria-describedby="helpId" minlength="0" maxlength="200">
-        <button class="btn btn-primary" >Guardar</button>
+        <button class="btn btn-primary" (click)="GuardarCategoria(this.categoria);">Guardar</button>
       </div>
 
     </div>

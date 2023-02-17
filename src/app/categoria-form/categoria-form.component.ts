@@ -10,7 +10,6 @@ import {Observable} from 'rxjs';
   styleUrls: ['./categoria-form.component.css']
 })
 export class CategoriaFormComponent {
-
 //El objeto categoria inicializado por defecto
 categoria:Categoria = {
   id_categoria:0,
@@ -18,7 +17,7 @@ categoria:Categoria = {
   cat_descripcion:""
 }
 id : Number=0;
-  constructor(private conexionServ: ConexionService, private route:ActivatedRoute, private Route: Router){
+  constructor(private conexionServ: ConexionService, private route:ActivatedRoute, private router: Router){
   //Recogemos el id pasado por parámetro
   this.id = Number(this.route.snapshot.paramMap.get('id'));
   console.log("EL id de la categoria es : " + this.id);
@@ -35,5 +34,16 @@ id : Number=0;
       )
  
     }
+  }
+
+  GuardarCategoria(categoria: Categoria){
+    const datos: Observable<any> = this.conexionServ.putApi('categorias',categoria);
+    datos.subscribe(
+      (resp:any) => {
+        if(resp.status=200){
+          this.router.navigateByUrl("categoria");
+        }
+      }
+    )
   }
 }

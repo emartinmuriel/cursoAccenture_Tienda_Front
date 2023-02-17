@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, share } from 'rxjs';
+import {Categoria} from '../modelos/categoria';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +19,10 @@ API_URL: String = 'http://localhost:8080/';
 /* 
   postApi(url:string) : Observable<any>{
     return this.http.get(this.API_URL+url).pipe(share());
-  }
-  putApi(url:string) : Observable<any>{
-    return this.http.get(this.API_URL+url).pipe(share());
   }*/
+  putApi(url:string, categoria:Categoria) : Observable<any>{
+    return this.http.put(this.API_URL+url,categoria).pipe(share());
+  }
   delApi(url:string) : Observable<any>{
     return this.http.delete(this.API_URL+url).pipe(share());
 
