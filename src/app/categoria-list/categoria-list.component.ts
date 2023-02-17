@@ -34,13 +34,13 @@ getListaCategorias():void{
   }
 
 
-  EliminarCategoria(id:any): void {
+EliminarCategoria(id:any): void {
 //  this.router.navigateByUrl('categoria/editar');
   const datos: Observable<any> = this.apiService.delApi('categoria/'+id);
 
   datos.subscribe(
     (resp:any) => {
-      console.log(resp);}
+  //    console.log(resp);}
   )
 
 //
