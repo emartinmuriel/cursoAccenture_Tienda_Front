@@ -33,19 +33,25 @@ getListaCategorias():void{
 
 
 EliminarCategoria(id:any): void {
-  const datos: Observable<any> = this.apiService.delApi('categorias/'+id);
-  console.log("Entra en la funcion" +id);
-  datos.subscribe(
-    (resp:any) => {
-      if(resp.status==200){
-        console.log("He eliminado: respuesta = "+resp);
-        window.location.reload();
-      }
 
-      if (resp.status==400){
-        alert("ERROR AL ELIMINAR EL REGISTRO: "+ resp.message);
+ 
+
+
+  const datos: Observable<any> = this.apiService.delApi('categorias/'+id);
+  if(confirm("¿Estás seguro de que quieres eliminar esta categoria?")) {
+    datos.subscribe(
+      (resp:any) => {
+        if(resp.status==200){
+          alert("Registro Eliminado");
+          window.location.reload();
+        }
+  
+        if (resp.status==400){
+          alert("ERROR AL ELIMINAR EL REGISTRO: "+ resp.message);
+        }
       }
-    }
-  )
+    )
+  }
+
 }
 }
