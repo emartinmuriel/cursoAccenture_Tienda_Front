@@ -9,3 +9,8 @@ button{
 .input-cat{
     width: 30vw;
 }
+
+.alert {
+    color: red;
+    background-color: rgb(254, 216, 216);
+}

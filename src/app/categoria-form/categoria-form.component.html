@@ -21,14 +21,18 @@
 
         <label for="nombreCategoria" class="form-label">Nombre</label>
         <input type="text" name="nombreCategoria" id="nombreCategoria" class="form-control input-cat" placeholder="Nombre de la categoria" #cat_nombre="ngModel" required  [(ngModel)]="categoria.cat_nombre" minlength="5" maxlength="50">
-          
-        <div *ngIf="cat_nombre.invalid && (cat_nombre.dirty || cat_nombre.touched)" class="alert">
-         <div *ngIf="cat_nombre.errors?.['required']"> 
+        <div *ngIf="cat_nombre.invalid  && (cat_nombre.dirty || cat_nombre.touched)" class="alert">
+          El campo debe contener entres 5 y 50 caracteres. 
+          <div *ngIf="cat_nombre.errors?.['required']"> 
           El campo debe contener entres 5 y 50 caracteres. 
           </div>
         </div>
         <label for="descripcionCategoria" class="form-label">Descripción</label>
-        <input type="text" name="descripcionCategoria" id="descripcionCategoria" [(ngModel)]="categoria.cat_descripcion" class="form-control input-cat" placeholder="Descripción" aria-describedby="helpId" minlength="0" maxlength="200">
+        <input type="text" name="descripcionCategoria" id="descripcionCategoria" [(ngModel)]="categoria.cat_descripcion" class="form-control input-cat" placeholder="Descripción" #cat_descripcion="ngModel" maxlength="200">
+        <div *ngIf="cat_descripcion.invalid" class="alert">
+          El campo No puede contener más de 200 caracteres. 
+        </div>
+        
         <button class="btn btn-primary" (click)="GuardarCategoria(this.categoria);">Guardar</button>
       </div>
 
