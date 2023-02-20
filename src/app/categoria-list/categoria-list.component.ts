@@ -37,9 +37,14 @@ EliminarCategoria(id:any): void {
   console.log("Entra en la funcion" +id);
   datos.subscribe(
     (resp:any) => {
-      console.log("He eliminado");
-      window.location.reload();
-      
+      if(resp.status==200){
+        console.log("He eliminado: respuesta = "+resp);
+        window.location.reload();
+      }
+
+      if (resp.status==400){
+        alert("ERROR AL ELIMINAR EL REGISTRO: "+ resp.message);
+      }
     }
   )
 }

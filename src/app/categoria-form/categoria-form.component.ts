@@ -44,17 +44,32 @@ id : Number=0;
           if(resp.status=200){
             this.router.navigateByUrl("categoria");
           }
-        }
-      )
+        },  err => {
+          console.log(err);
+        
+          if (err.status==400){
+            console.log(err.error.mensaje);
+            alert("NO SE HA GUARDADO EL REGISTRO. ERROR:" +err.error.mensaje);
+          }
+      })
+      
     } else{ //Actualiza datos
       const datos: Observable<any> = this.conexionServ.putApi('categorias',categoria);
         datos.subscribe(
           (resp:any) => {
-            if(resp.status=200){
+            console.log(resp);
+            if(resp.status==200){
               this.router.navigateByUrl("categoria");
             }
-          }
-        )
+          },  err => {
+            console.log(err);
+          
+            if (err.status==400){
+              console.log(err.error.mensaje);
+              alert("NO SE HA GUARDADO EL REGISTRO. ERROR:" +err.error.mensaje);
+            }
+        })
+      
     }
   } 
 }
